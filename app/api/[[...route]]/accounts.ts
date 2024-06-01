@@ -1,6 +1,5 @@
 import { Hono } from "hono";
 import { clerkMiddleware, getAuth } from "@hono/clerk-auth";
-import { HTTPException } from "hono/http-exception";
 
 import { db } from "@/db/drizzle";
 import { accounts } from "@/db/schema";
@@ -13,9 +12,10 @@ const app = new Hono().get(
     const auth = getAuth(c);
 
     if (!auth?.userId) {
-      throw new HTTPException(401, {
-        res: c.json({ error: "Unauthorized" }, 401),
-      });
+      return c.json({ error: "Unauthorized" }, 401);
+      //   throw new HTTPException(401, {
+      //     res: c.json({ error: "Unauthorized" }, 401),
+      //   });
     }
 
     const data = await db
