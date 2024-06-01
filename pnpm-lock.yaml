@@ -17,12 +17,18 @@ dependencies:
   '@hono/zod-validator':
     specifier: ^0.2.1
     version: 0.2.1(hono@4.4.2)(zod@3.23.8)
+  '@hookform/resolvers':
+    specifier: ^3.4.2
+    version: 3.4.2(react-hook-form@7.51.5)
   '@neondatabase/serverless':
     specifier: ^0.9.3
     version: 0.9.3
   '@radix-ui/react-dialog':
     specifier: ^1.0.5
     version: 1.0.5(@types/react-dom@18.0.0)(@types/react@18.0.0)(react-dom@18.0.0)(react@18.0.0)
+  '@radix-ui/react-label':
+    specifier: ^2.0.2
+    version: 2.0.2(@types/react-dom@18.0.0)(@types/react@18.0.0)(react-dom@18.0.0)(react@18.0.0)
   '@radix-ui/react-slot':
     specifier: ^1.0.2
     version: 1.0.2(@types/react@18.0.0)(react@18.0.0)
@@ -38,24 +44,39 @@ dependencies:
   drizzle-orm:
     specifier: ^0.30.10
     version: 0.30.10(@neondatabase/serverless@0.9.3)(@types/react@18.0.0)(pg@8.11.5)(react@18.0.0)
+  drizzle-zod:
+    specifier: ^0.5.1
+    version: 0.5.1(drizzle-orm@0.30.10)(zod@3.23.8)
   hono:
     specifier: ^4.4.2
     version: 4.4.2
   lucide-react:
     specifier: ^0.381.0
     version: 0.381.0(react@18.0.0)
+  nanoid:
+    specifier: ^5.0.7
+    version: 5.0.7
   next:
     specifier: 14.2.3
     version: 14.2.3(react-dom@18.0.0)(react@18.0.0)
+  next-themes:
+    specifier: ^0.3.0
+    version: 0.3.0(react-dom@18.0.0)(react@18.0.0)
   react:
     specifier: ^18
     version: 18.0.0
   react-dom:
     specifier: ^18
     version: 18.0.0(react@18.0.0)
+  react-hook-form:
+    specifier: ^7.51.5
+    version: 7.51.5(react@18.0.0)
   react-use:
     specifier: ^17.5.0
     version: 17.5.0(react-dom@18.0.0)(react@18.0.0)
+  sonner:
+    specifier: ^1.4.41
+    version: 1.4.41(react-dom@18.0.0)(react@18.0.0)
   tailwind-merge:
     specifier: ^2.3.0
     version: 2.3.0
@@ -68,6 +89,9 @@ dependencies:
   zod:
     specifier: ^3.23.8
     version: 3.23.8
+  zustand:
+    specifier: ^4.5.2
+    version: 4.5.2(@types/react@18.0.0)(react@18.0.0)
 
 devDependencies:
   '@types/node':
@@ -858,6 +882,14 @@ packages:
       hono: 4.4.2
       zod: 3.23.8
 
+  /@hookform/resolvers@3.4.2(react-hook-form@7.51.5):
+    resolution: {integrity: sha512-1m9uAVIO8wVf7VCDAGsuGA0t6Z3m6jVGAN50HkV9vYLl0yixKK/Z1lr01vaRvYCkIKGoy1noVRxMzQYb4y/j1Q==}
+    peerDependencies:
+      react-hook-form: ^7.0.0
+    dependencies:
+      react-hook-form: 7.51.5(react@18.0.0)
+    dev: false
+
   /@humanwhocodes/config-array@0.6.0:
     resolution: {integrity: sha512-JQlEKbcgEUjBFhLIF4iqM7u/9lwgHRBcpHrmUNCALK0Q3amXN6lxdoXLnF0sm11E9VqTmBALR87IlUg1bZ8A9A==}
     engines: {node: '>=10.10.0'}
@@ -1173,6 +1205,27 @@ packages:
       '@radix-ui/react-use-layout-effect': 1.0.1(@types/react@18.0.0)(react@18.0.0)
       '@types/react': 18.0.0
       react: 18.0.0
+    dev: false
+
+  /@radix-ui/react-label@2.0.2(@types/react-dom@18.0.0)(@types/react@18.0.0)(react-dom@18.0.0)(react@18.0.0):
+    resolution: {integrity: sha512-N5ehvlM7qoTLx7nWPodsPYPgMzA5WM8zZChQg8nyFJKnDO5WHdba1vv5/H6IO5LtJMfD2Q3wh1qHFGNtK0w3bQ==}
+    peerDependencies:
+      '@types/react': '*'
+      '@types/react-dom': '*'
+      react: ^16.8 || ^17.0 || ^18.0
+      react-dom: ^16.8 || ^17.0 || ^18.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      '@types/react-dom':
+        optional: true
+    dependencies:
+      '@babel/runtime': 7.24.6
+      '@radix-ui/react-primitive': 1.0.3(@types/react-dom@18.0.0)(@types/react@18.0.0)(react-dom@18.0.0)(react@18.0.0)
+      '@types/react': 18.0.0
+      '@types/react-dom': 18.0.0
+      react: 18.0.0
+      react-dom: 18.0.0(react@18.0.0)
     dev: false
 
   /@radix-ui/react-portal@1.0.4(@types/react-dom@18.0.0)(@types/react@18.0.0)(react-dom@18.0.0)(react@18.0.0):
@@ -2104,6 +2157,16 @@ packages:
       '@types/react': 18.0.0
       pg: 8.11.5
       react: 18.0.0
+    dev: false
+
+  /drizzle-zod@0.5.1(drizzle-orm@0.30.10)(zod@3.23.8):
+    resolution: {integrity: sha512-C/8bvzUH/zSnVfwdSibOgFjLhtDtbKYmkbPbUCq46QZyZCH6kODIMSOgZ8R7rVjoI+tCj3k06MRJMDqsIeoS4A==}
+    peerDependencies:
+      drizzle-orm: '>=0.23.13'
+      zod: '*'
+    dependencies:
+      drizzle-orm: 0.30.10(@neondatabase/serverless@0.9.3)(@types/react@18.0.0)(pg@8.11.5)(react@18.0.0)
+      zod: 3.23.8
     dev: false
 
   /eastasianwidth@0.2.0:
@@ -3544,9 +3607,25 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
+  /nanoid@5.0.7:
+    resolution: {integrity: sha512-oLxFY2gd2IqnjcYyOXD8XGCftpGtZP2AbHbOkthDkvRywH5ayNtPVy9YlOPcHckXzbLTCHpkb7FB+yuxKV13pQ==}
+    engines: {node: ^18 || >=20}
+    hasBin: true
+    dev: false
+
   /natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
     dev: true
+
+  /next-themes@0.3.0(react-dom@18.0.0)(react@18.0.0):
+    resolution: {integrity: sha512-/QHIrsYpd6Kfk7xakK4svpDI5mmXP0gfvCoJdGpZQ2TOrQZmsW0QxjaiLn8wbIKjtm4BTSqLoix4lxYYOnLJ/w==}
+    peerDependencies:
+      react: ^16.8 || ^17 || ^18
+      react-dom: ^16.8 || ^17 || ^18
+    dependencies:
+      react: 18.0.0
+      react-dom: 18.0.0(react@18.0.0)
+    dev: false
 
   /next-tick@1.1.0:
     resolution: {integrity: sha512-CXdUiJembsNjuToQvxayPZF9Vqht7hewsvy2sOWafLvi2awflj9mOC6bHIg50orX8IJvWKY9wYQ/zB2kogPslQ==}
@@ -3989,6 +4068,15 @@ packages:
       scheduler: 0.21.0
     dev: false
 
+  /react-hook-form@7.51.5(react@18.0.0):
+    resolution: {integrity: sha512-J2ILT5gWx1XUIJRETiA7M19iXHlG74+6O3KApzvqB/w8S5NQR7AbU8HVZrMALdmDgWpRPYiZJl0zx8Z4L2mP6Q==}
+    engines: {node: '>=12.22.0'}
+    peerDependencies:
+      react: ^16.8.0 || ^17 || ^18
+    dependencies:
+      react: 18.0.0
+    dev: false
+
   /react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
     dev: true
@@ -4295,6 +4383,16 @@ packages:
       map-obj: 4.3.0
       snake-case: 3.0.4
       type-fest: 2.19.0
+    dev: false
+
+  /sonner@1.4.41(react-dom@18.0.0)(react@18.0.0):
+    resolution: {integrity: sha512-uG511ggnnsw6gcn/X+YKkWPo5ep9il9wYi3QJxHsYe7yTZ4+cOd1wuodOUmOpFuXL+/RE3R04LczdNCDygTDgQ==}
+    peerDependencies:
+      react: ^18.0.0
+      react-dom: ^18.0.0
+    dependencies:
+      react: 18.0.0
+      react-dom: 18.0.0(react@18.0.0)
     dev: false
 
   /source-map-js@1.2.0:
@@ -4747,6 +4845,14 @@ packages:
       tslib: 2.6.2
     dev: false
 
+  /use-sync-external-store@1.2.0(react@18.0.0):
+    resolution: {integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.0.0
+    dev: false
+
   /use-sync-external-store@1.2.2(react@18.0.0):
     resolution: {integrity: sha512-PElTlVMwpblvbNqQ82d2n6RjStvdSoNe9FG28kNfz3WiXilJm4DdNkEzRhCZuIDwY8U08WVihhGR5iRqAwfDiw==}
     peerDependencies:
@@ -4858,3 +4964,23 @@ packages:
 
   /zod@3.23.8:
     resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
+
+  /zustand@4.5.2(@types/react@18.0.0)(react@18.0.0):
+    resolution: {integrity: sha512-2cN1tPkDVkwCy5ickKrI7vijSjPksFRfqS6237NzT0vqSsztTNnQdHw9mmN7uBdk3gceVXU0a+21jFzFzAc9+g==}
+    engines: {node: '>=12.7.0'}
+    peerDependencies:
+      '@types/react': '>=16.8'
+      immer: '>=9.0.6'
+      react: '>=16.8'
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      immer:
+        optional: true
+      react:
+        optional: true
+    dependencies:
+      '@types/react': 18.0.0
+      react: 18.0.0
+      use-sync-external-store: 1.2.0(react@18.0.0)
+    dev: false
