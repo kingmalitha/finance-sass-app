@@ -39,8 +39,8 @@ export default function SignInPage() {
       <div className="h-full bg-blue-600 hidden lg:flex items-center justify-center">
         <Image
           src="/logo.svg"
-          width={500}
-          height={500}
+          width={400}
+          height={400}
           alt="logo"
         />
       </div>
