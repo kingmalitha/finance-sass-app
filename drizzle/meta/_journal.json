@@ -15,6 +15,13 @@
       "when": 1717227621705,
       "tag": "0001_burly_zzzax",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1717344367735,
+      "tag": "0002_swift_human_torch",
+      "breakpoints": true
     }
   ]
 }
