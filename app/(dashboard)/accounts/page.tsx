@@ -15,7 +15,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { columns } from "@/app/(dashboard)/accounts/columns";
 import { useNewAccount } from "@/features/accounts/hooks/use-new-account";
 import { useGetAccounts } from "@/features/accounts/api/use-get-accounts";
-import { useBulkDeleteAccount } from "@/features/accounts/api/use-bulk-delete";
+import { useBulkDeleteAccount } from "@/features/accounts/api/use-bulk-delete-accounts";
 
 export default function AccountsPage() {
   const newAccount = useNewAccount();

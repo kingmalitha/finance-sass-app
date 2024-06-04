@@ -12,3 +12,18 @@ export function convertAmountToMiliunits(amount: number) {
 export function convertAmountFromMiliunits(amount: number) {
   return amount / 1000;
 }
+
+export function formatCurrency(
+  value: number,
+  fromMiliunits?: boolean
+) {
+  const modifiedValue = fromMiliunits
+    ? convertAmountFromMiliunits(value)
+    : value;
+
+  return Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    minimumFractionDigits: 2,
+  }).format(modifiedValue);
+}
