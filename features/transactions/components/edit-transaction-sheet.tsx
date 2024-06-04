@@ -1,10 +1,10 @@
 import { z } from "zod";
 
-import { AccountForm } from "@/features/accounts/components/account-form";
-import { useOpenAccount } from "@/features/accounts/hooks/use-open-account";
-import { useEditAccount } from "@/features/accounts/api/use-edit-account";
-import { useDeleteAccount } from "@/features/accounts/api/use-delete-account";
-import { useGetAccount } from "@/features/accounts/api/use-get-account";
+import { TransactionForm } from "@/features/transactions/components/transaction-form";
+import { useOpenTransaction } from "@/features/transactions/hooks/use-open-transaction";
+import { useEditTransaction } from "@/features/transactions/api/use-edit-transaction";
+import { useDeleteTransaction } from "@/features/transactions/api/use-delete-transaction";
+import { useGetTransaction } from "@/features/transactions/api/use-get-transaction";
 
 import {
   Sheet,
@@ -17,26 +17,26 @@ import { insertAccountSchema } from "@/db/schema";
 import { Loader2 } from "lucide-react";
 import { useConfirm } from "@/hooks/use-confirm";
 
-const formSchema = insertAccountSchema.pick({
-  name: true,
+const formSchema = insertAccountSchema.omit({
+  id: true,
 });
 
 type FormValues = z.input<typeof formSchema>;
 
-const EditAccountSheet = () => {
-  const { isOpen, onClose, id } = useOpenAccount();
+const EditTransactionSheet = () => {
+  const { isOpen, onClose, id } = useOpenTransaction();
 
   const [ConfirmDialog, confirm] = useConfirm(
     "Are you sure?",
-    "You are about to delete this account! This action is irreversible."
+    "You are about to delete this transaction! This action is irreversible."
   );
 
-  const accountQuery = useGetAccount(id);
+  const transactionQuery = useGetTransaction(id);
 
-  const editMutation = useEditAccount(id);
-  const deleteMutation = useDeleteAccount(id);
+  const editMutation = useEditTransaction(id);
+  const deleteMutation = useDeleteTransaction(id);
 
-  const isLoading = accountQuery.isLoading;
+  const isLoading = transactionQuery.isLoading;
 
   const isPending =
     editMutation.isPending || deleteMutation.isPending;
@@ -61,9 +61,9 @@ const EditAccountSheet = () => {
     }
   };
 
-  const defaultValues = accountQuery.data
+  const defaultValues = transactionQuery.data
     ? {
-        name: accountQuery.data.name,
+        // name: transactionQuery.data.name,
       }
     : {
         name: "",
@@ -75,9 +75,9 @@ const EditAccountSheet = () => {
       <Sheet open={isOpen} onOpenChange={onClose}>
         <SheetContent className="space-y-4">
           <SheetHeader>
-            <SheetTitle>Edit Account</SheetTitle>
+            <SheetTitle>Edit Transaction</SheetTitle>
             <SheetDescription>
-              Edit an existing account to update your
+              Edit an existing transaction to update your
               transactions.
             </SheetDescription>
           </SheetHeader>
@@ -86,7 +86,7 @@ const EditAccountSheet = () => {
               <Loader2 className="size-4 text-muted-foreground animate-spin" />
             </div>
           ) : (
-            <AccountForm
+            <TransactionForm
               id={id}
               onSubmit={onSubmit}
               defaultValues={defaultValues}
@@ -100,4 +100,4 @@ const EditAccountSheet = () => {
   );
 };
 
-export default EditAccountSheet;
+export default EditTransactionSheet;
