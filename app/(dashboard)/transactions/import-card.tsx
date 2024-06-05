@@ -111,6 +111,8 @@ export const ImportCard = ({
         OUTPUTFORMAT
       ),
     }));
+
+    onSubmit(formattedData);
   };
 
   return (
