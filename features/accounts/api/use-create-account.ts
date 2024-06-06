@@ -35,6 +35,9 @@ export function useCreateAccount() {
       queryClient.invalidateQueries({
         queryKey: ["accounts"],
       });
+      queryClient.invalidateQueries({
+        queryKey: ["summary"],
+      });
     },
     onError: () => {
       toast.error("Failed to create account");

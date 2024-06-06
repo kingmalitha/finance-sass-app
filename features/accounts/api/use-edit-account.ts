@@ -52,7 +52,9 @@ export function useEditAccount(id?: string) {
         queryKey: ["transactions"],
       });
 
-      //TODO: Invalidate summary
+      queryClient.invalidateQueries({
+        queryKey: ["summary"],
+      });
     },
     onError: () => {
       toast.error("Failed to update account");

@@ -49,7 +49,9 @@ export function useEditTransaction(id?: string) {
         queryKey: ["transactions"],
       });
 
-      //TODO: Invalidate summary
+      queryClient.invalidateQueries({
+        queryKey: ["summary"],
+      });
     },
     onError: () => {
       toast.error("Failed to update transaction");
