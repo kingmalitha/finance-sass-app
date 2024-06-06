@@ -9,6 +9,8 @@ import {
 import { Loader2 } from "lucide-react";
 import WelcomeMsg from "@/components/welcome-msg";
 
+import { Filters } from "@/components/filters";
+
 const Header = () => {
   return (
     <header className="bg-gradient-to-b from-blue-700 to-blue-500 px-4 py-8 lg:px-14 pb-36">
@@ -28,6 +30,7 @@ const Header = () => {
           </ClerkLoading>
         </div>
         <WelcomeMsg />
+        <Filters />
       </div>
     </header>
   );
